@@ -10,7 +10,7 @@ $(document).ready(function(){
    $(document).scroll(function() { 
       scroll_start = $(this).scrollTop();
       if(scroll_start > offset.top) {
-          $(".navbar-default").css('background', 'rgba(255,255,255,0.9)');
+          $(".navbar-default").css('background', 'rgba(255,255,255,0.85)');
           $('.navbar-default').css('border-bottom-color', 'rgba(0, 0, 0, 0.0980392)');
 
        } else {

@@ -1,4 +1,5 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do 
+
  ### ACCESS + MAIN ROUTES
   root 'access#home'
   
