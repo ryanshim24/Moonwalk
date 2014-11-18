@@ -4,7 +4,8 @@ $(document).ready(function(){
   $(".reset-link").on("click", function() {
     $('#logModal').modal('hide');
   });
-
+  
+  //Autofocus for the Modals
   $('.modal').on('shown.bs.modal', function() {
     $(this).find('[autofocus]').focus();
   });
