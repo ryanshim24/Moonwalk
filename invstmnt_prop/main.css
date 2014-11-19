@@ -1,0 +1,146 @@
+/*
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+// HTML5 display-role reset for older browsers //
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+*/
+
+
+img {
+  height: 150px;
+  width: 200px;
+  margin: 40px 0px 0px 0px;
+  border: 7px solid white;
+  border-color: rgba(206,205,217,.25);
+  border-radius: 90px;
+}
+
+h2{
+  color: rgba(252,234,172,1);
+}
+
+header {
+  text-align: center;
+  background-size: cover;
+
+}
+
+
+article {
+  max-width: 500px;
+  margin: 0 auto;
+  position: center;
+
+}
+
+body {
+  background: url("elements/sunset.jpg") no-repeat;
+  background-size: cover;
+  background-position: center top;
+  color: rgba(252,234,172,1);
+  font-size: 20px;
+}
+
+th {
+  padding: 0px 120px 0px 0px;
+  color: white;
+}
+
+.tableData {
+  padding: 55px 20px 0px 10px;
+  background-color: rgba(255,255,255,.3);
+}
+
+#address {
+  margin-right: 55px 0px 0px 0px;
+}
+
+form {
+  border: white;
+
+}
+
+footer {
+  color: black;
+  position: absolute;
+  bottom: 0;
+  width: 100%
+}
+/*when the screen is less than 500px it will change to this value*/
+@media (max-width: 500px) {
+  body {
+    image: ;
+    font-size: 15px;
+    color: white;
+  }
+}
+
+/* link css */
+/* unvisited link */
+a:link {
+  padding: 20px;
+  color: rgba(241,182,148,.75);
+}
+
+/* visited link */
+a:visited {
+    color: rgba(241,182,148,.25);
+}
+
+/* mouse over link */
+a:hover {
+
+    color: rgba(224,113,48,.75);
+}
+
+/* selected link */
+a:active {
+    color: rgba(47,77,140,.25);
+}
+
+/* Changing the bg to red if the ROI is a negative number*/
+if ($('#tablerate') < 0) {
+  .tableData {
+    background-color: rgba(255,0,0,.3);
+  }
+}
+

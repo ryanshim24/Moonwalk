@@ -33,7 +33,7 @@ gem 'better_errors'
 gem 'bootstrap-slider-rails'
 # Use unicorn as the app server
 # gem 'unicorn'
-
+gem 'nokogiri'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
