@@ -8,6 +8,36 @@
 
 Favorite.delete_all
 User.delete_all
+House.delete_all
+
+House.create([
+  {
+    city: "Oakland",
+    address: "5823 DOVER St",
+    price: 549000,
+    bedrooms: 3,
+    income: 2860,
+    taxes: 3400,
+    units: 1
+  },
+  {
+    city: "Oakland",
+    address: "5655 ADELINE St",
+    price: 449000,
+    bedrooms: 3,
+    income: 2860,
+    taxes: 1274,
+    units: 1
+    },
+    {
+    city: "Oakland",
+    address: "592 62ND St",
+    price: 599000,
+    bedrooms: 5,
+    income: 4900,
+    taxes: 1555,
+    units: 1
+    }]) 
 
 Favorite.create([{roi: "234234234"},
   {roi: "1234"},
