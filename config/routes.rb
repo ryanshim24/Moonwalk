@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   get 'reset/:user_reset_token', to: 'access#reset', as: 'reset'
 
   patch 'reset/:user_reset_token', to: 'access#reset_password'
+
+  
+  resources :favorite
+
   
 end
   

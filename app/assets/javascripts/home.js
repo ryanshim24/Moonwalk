@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+  var Favorite = {};
+
+
   // MY Forget Password Modal
   $(".reset-link").on("click", function() {
     $('#logModal').modal('hide');
@@ -29,17 +32,30 @@ $(document).ready(function(){
         }
       });
     }//end of start changed
-    
 
-    // BUDGET SLIDER
-    $("#budget").slider();
-    $("#budget").on("slide", function(slideEvt) {
-      $("#sliderVal").text(slideEvt.value);
-      if (slideEvt.value >= 5000) {
-        $("#sliderVal").text("5000+");
-      }
-    });
 
+
+
+
+// Favorite.addFav = function() {
+//   console.log(this);
+//   $.post('/favorites', {favorite: {roi: roi} }).done(function(fav) {
+//     Favorite.loadFavs();
+//   }); 
+// };
+
+// Favorite.loadFavs = function() { // Fetch all the books
+//   $("#myFavs").remove(); //clear out books
+//   $.get("/favorite").done(function(favs){ // AJAX request
+//     favs.forEach(function(fav){ // iterate through the books our AJAX returned
+//       var list = "<li>"+fav.roi+"</li>";
+//       $("#myFavs").append(list);
+//     });
+//   });
+// };
+
+
+  
 });//DOCUMENT CLOSED
 
 

@@ -91,6 +91,7 @@ before_action :prevent_login_signup, only: [:login, :new]
     redirect_to root_path
   end
 
+
 # APP PAGE
   def index
     @current_user = current_user
