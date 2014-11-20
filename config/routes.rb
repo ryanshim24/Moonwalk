@@ -1,5 +1,7 @@
 Rails.application.routes.draw do 
 
+  get 'houses/new'
+
  ### ACCESS + MAIN ROUTES
   root 'access#home'
   
