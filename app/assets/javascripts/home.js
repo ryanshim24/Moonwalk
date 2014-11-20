@@ -34,6 +34,9 @@ $(document).ready(function(){
       });
     }//end of start changed
 
+
+
+//  ADDING TO FAVORITES!
 $(".tableData").on("click",'.btn', function(e){
   e.preventDefault();
   var roi = (this.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText);
@@ -58,17 +61,12 @@ function loadFav() {
 }
 
 
-// Favorite.loadFavs = function() { // Fetch all the books
-//   $("#myFavs").remove(); //clear out books
-//   $.get("/favorite").done(function(favs){ // AJAX request
-//     favs.forEach(function(fav){ // iterate through the books our AJAX returned
-//       var list = "<li>"+fav.roi+"</li>";
-//       $("#myFavs").append(list);
-//     });
-//   });
-// };
 
 
+
+
+
+//MY REFACTURED CODE OF SWTICH'S 
 
 var homes = [];
 
