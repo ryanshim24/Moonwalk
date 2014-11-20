@@ -54,9 +54,24 @@ function loadFav() {
   $("#myFavs").empty();
   $.get('/favorite/1').done(function(favs){
     favs.forEach(function(fav){
-      var list = "<li>"+fav.roi+"</li>";
+      var list = "<li>"+fav.roi+"<button class ='deleteFav'>Delete</button></li>";
       $("#myFavs").append(list);
     });
+  });
+}
+
+$('#myFavs').on("click",'.deleteFav', function(e){
+  e.preventDefault();
+  deleteFav(2);
+});
+
+function deleteFav(targetId) {
+  alert("Wahoo!");
+  $.ajax({
+    type: 'delete',
+    url: '/favorite/' + targetId
+  }).done(function(data){
+    $("#favorite-" + data.id).remove();
   });
 }
 
@@ -72,22 +87,22 @@ var homes = [];
 
 /// THIS IS THE MAIN THING YOOYOYOYOYO
 // Adds our input stuff into this Calculator
-  function add(city, address, price, units, income, taxes){
-    var downpayment = (price * .33).toFixed(2);
-    var bills = (units * 5 + income * .1).toFixed(2);
-    var repairs = units * 100;
+function add(city, address, price, units, income, taxes){
+  var downpayment = (price * .33).toFixed(2);
+  var bills = (units * 5 + income * .1).toFixed(2);
+  var repairs = units * 100;
 
-    function vacancy(add) {
-      if (city == 'Portland'){
-        return (income *.035).toFixed(2);
-      } else if (city == 'Las Vegas'){              
-        return (income * .08).toFixed(2);
-      } else if (city == 'Oakland'){              
-        return (income * .11).toFixed(2);
-      } else { 
-        return 0;   
-      }
-    };
+  function vacancy(add) {
+    if (city == 'Portland'){
+      return (income *.035).toFixed(2);
+    } else if (city == 'Las Vegas'){              
+      return (income * .08).toFixed(2);
+    } else if (city == 'Oakland'){              
+      return (income * .11).toFixed(2);
+    } else { 
+      return 0;   
+    }
+  };
     
 
 //This is the mortgage calculator
@@ -130,18 +145,18 @@ var homes = [];
   $('.tableData').empty();
   var whatever = homes;
   console.log(whatever);
-  whatever.forEach(function(whatever) {
-    $(".tableData").append
-    ("<tr>"  
-    + "<td id='tablerate'>" + whatever.rate + "</td>" 
-    + "<td id='tableaddress'>"+ whatever.address + "</td>" 
-    + "<td id='tabledownpayment'>"+ whatever.downpayment + "</td>" 
-    + "<td id='tablemortgage'>"+ whatever.mortgage + "</td>" 
-    + "<td id='tableincome'>"+ whatever.cashflow 
-    + "</td>"+"<td id='tablebutton'><button id='addFav' class='btn'>Favorite</button>"
-    + "</tr>");
-  });
-}
+    whatever.forEach(function(whatever) {
+      $(".tableData").append
+      ("<tr>"  
+      + "<td id='tablerate'>" + whatever.rate + "</td>" 
+      + "<td id='tableaddress'>"+ whatever.address + "</td>" 
+      + "<td id='tabledownpayment'>"+ whatever.downpayment + "</td>" 
+      + "<td id='tablemortgage'>"+ whatever.mortgage + "</td>" 
+      + "<td id='tableincome'>"+ whatever.cashflow 
+      + "</td>"+"<td id='tablebutton'><button id='addFav' class='btn'>Favorite</button>"
+      + "</tr>");
+    });
+  }
 }// end of the add function
 
 
@@ -154,7 +169,7 @@ $('.addtolist').on("click", function(e){
   var income = parseInt($('#income').val());
   var taxes = parseInt($('#taxes').val());
   add(city, address, price, units, income, taxes);
-  $('#city').val("");
+$('#city').val("");
   $('#address').val("");
   $('#price').val("");
   $('#units').val("");
