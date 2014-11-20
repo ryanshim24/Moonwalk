@@ -6,11 +6,17 @@ class FavoriteController < ApplicationController
   end
  
   def create
-    render json: Favorite.create(favorite_params)
+    roi = params[:roi]
+    y = Favorite.create({roi: roi})
+    u = User.find session[:user_id]
+    u.favorites << y
+    render json: y
   end
  
   def show
-    render json: @favorite
+    user = User.find session[:user_id]
+    userFavs = user.favorites
+    render json: userFavs
   end
  
   def update

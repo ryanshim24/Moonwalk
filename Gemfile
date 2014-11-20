@@ -34,6 +34,7 @@ gem 'bootstrap-slider-rails'
 # Use unicorn as the app server
 # gem 'unicorn'
 gem 'nokogiri'
+gem 'handlebars_assets'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
