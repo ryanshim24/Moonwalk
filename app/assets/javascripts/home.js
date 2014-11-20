@@ -60,6 +60,9 @@ function loadFav() {
   });
 }
 
+
+//DELETING FAVORITES!!!
+
 $('#myFavs').on("click",'.deleteFav', function(e){
   e.preventDefault();
   deleteFav(2);
@@ -74,10 +77,6 @@ function deleteFav(targetId) {
     $("#favorite-" + data.id).remove();
   });
 }
-
-
-
-
 
 
 
