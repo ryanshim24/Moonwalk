@@ -25,10 +25,14 @@ $(document).ready(function(){
         if(scroll_start > offset.top) {
           $(".navbar-default").css('background', 'rgba(255,255,255,0.85)');
           $('.navbar-default').css('border-bottom-color', 'rgba(0, 0, 0, 0.0980392)');
+          $('.navbar-brand').css('color', 'gray');
+          $('.navbar-nav > li > a').css('color', 'gray');
         } else {
           $('.navbar-default').css('background-color', 'transparent');
           $('.navbar-default').css('border-bottom-color', 'rgba(0, 0, 0, 0)');
           $(".navbar-default").css('background', 'none ');
+          $('.navbar-brand').css('color', 'white');
+          $('.navbar-nav > li > a').css('color', 'white');
         }
       });
     }//end of start changed
