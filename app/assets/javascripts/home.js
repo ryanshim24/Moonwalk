@@ -172,7 +172,7 @@ function add(city, address, price, units, income, taxes, title){
       $(".tableData").append
       ("<tr>"  
       + "<td id='tablerate'>" + whatever.rate + "</td>" 
-      + "<td id='tableaddress'><a target='_blank' href=http://sfbay.craigslist.org"+whatever.address+">"+whatever.title+"</a></td>" 
+      + "<td id='tableaddress'><a target='_blank' href="+whatever.address+">"+whatever.title+"</a></td>" 
       + "<td id='tabledownpayment'>"+ whatever.downpayment + "</td>" 
       + "<td id='tablemortgage'>"+ whatever.mortgage + "</td>" 
       + "<td id='tableincome'>"+ whatever.cashflow 

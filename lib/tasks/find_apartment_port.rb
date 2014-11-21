@@ -162,14 +162,14 @@ end
   puts fourBR
   puts fiveBR
 
-url = "http://"+area+".craigslist.org/search/"+region+"rea?query="+c_search+"&hasPic=1&housing_type=6"
-doc = Nokogiri::HTML(open(url))
+houses_url = "http://"+area+".craigslist.org/search/"+region+"rea?query="+c_search+"&hasPic=1&housing_type=6"
+doc = Nokogiri::HTML(open(houses_url))
 houses = doc.css('.txt')
 
   houses.each do |house|
   if !house.at_css('.price').nil? and !house.at_css('small').nil? and !house.at_css('.housing').nil?  
     title = house.at_css('.pl .hdrlnk').text
-    url = "http://"+area+".craigslist.org/search"+house.at_css('.pl .hdrlnk')[:href]+""
+    url = "http://portland.craigslist.org"+house.at_css('.pl .hdrlnk')[:href]+""
     cost = house.at_css('.price').text
     cost.slice!(0)
     price = cost.to_i
