@@ -185,7 +185,6 @@ $('.addtolist').on("submit", function(e){
   var city = $('#city').val();
   var newCity = city.toLowerCase();
   getHouses(newCity);
-  $('#city').val("");
 });
 
 // function toTitleCase(str) {
