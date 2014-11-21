@@ -144,8 +144,8 @@ end
 # each value within the array gets reassigned the average value
 # thus, we select just the first value 
 @studio = br0_avg.first
-@something = br1_avg.first
-# @br2_avg.first
-# @br3_avg.first
-# @br4_avg.first
-# @br5_or_more_avg.first
+@oneBR = br1_avg.first
+@twoBR = br2_avg.first
+@threeBR = br3_avg.first
+@fourBR = br4_avg.first
+@fiveBR = br5_or_more_avg.first
