@@ -1,10 +1,7 @@
-desc "get average rent price based on number of bedrooms"
-task :fetch_income => :environment do
-  require 'nokogiri'
-  require 'open-uri'
-  require 'awesome_print'
-  require 'pry'
-  require 'mechanize'
+require 'nokogiri'
+require 'open-uri'
+require 'rake'
+# require 'awesome_print'
 
 # taking the first 5 pages from CL and scraping it
 url = 'http://sfbay.craigslist.org/search/eby/apa?query=oakland&minSqft=0'
@@ -77,8 +74,8 @@ houses.each do |house|
     elsif
       bedroom.include?('5br' || '6br')
       br5 << num
-      end
     end
+  end
 
   rescue
     puts "Sorry bud, we got problems"
@@ -146,11 +143,9 @@ end
 
 # each value within the array gets reassigned the average value
 # thus, we select just the first value 
-puts br0_avg.first
-puts br1_avg.first
-puts br2_avg.first
-puts br3_avg.first
-puts br4_avg.first
-puts br5_or_more_avg.first
-
-end
+@studio = br0_avg.first
+@something = br1_avg.first
+# @br2_avg.first
+# @br3_avg.first
+# @br4_avg.first
+# @br5_or_more_avg.first
