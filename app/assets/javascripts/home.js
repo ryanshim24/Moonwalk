@@ -1,5 +1,12 @@
 $(document).ready(function(){
 
+
+/////////////////////////////////////////////////////////////
+//GENEARL GOOD STUFF WAHOOOOO!!!!!
+////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+
   // MY Forget Password Modal
   $(".reset-link").on("click", function() {
     $('#logModal').modal('hide');
@@ -36,7 +43,16 @@ $(document).ready(function(){
 
 
 
+/////////////////////////////////////////////////////////////
+//ADDING TO FAVORITES/DELETING GOOD STUFF
+////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+
+
 //  ADDING TO FAVORITES!
+
+
 $(".tableData").on("click",'.btn', function(e){
   e.preventDefault();
   var roi = (this.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText);
@@ -54,7 +70,7 @@ function loadFav() {
   $("#myFavs").empty();
   $.get('/favorite/1').done(function(favs){
     favs.forEach(function(fav){
-      var list = "<li>"+fav.roi+"<button class ='deleteFav'>Delete</button></li>";
+      var list = "<li>"+fav.roi+"<button class='deleteBtn' data-id='"+fav.id+"'>Delete</button></li>";
       $("#myFavs").append(list);
     });
   });
@@ -63,24 +79,29 @@ function loadFav() {
 
 //DELETING FAVORITES!!!
 
-$('#myFavs').on("click",'.deleteFav', function(e){
+$('#myFavs').on("click",'.deleteBtn', function(e){
   e.preventDefault();
-  deleteFav(2);
+  deleteFav(this.getAttribute('data-id'));
 });
 
 function deleteFav(targetId) {
-  alert("Wahoo!");
   $.ajax({
     type: 'delete',
     url: '/favorite/' + targetId
   }).done(function(data){
-    $("#favorite-" + data.id).remove();
+    var tim = $('.deleteBtn[data-id="'+targetId+'"]');
+    console.log(tim);
+    tim.parent().remove();
   });
 }
 
 
 
+/////////////////////////////////////////////////////////////
 //MY REFACTURED CODE OF SWTICH'S 
+////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
 
 var homes = [];
 
@@ -159,25 +180,53 @@ function add(city, address, price, units, income, taxes){
 }// end of the add function
 
 
+
 $('.addtolist').on("click", function(e){
   e.preventDefault();
-  var city = $('#city').val();
-  var address =$('#address').val();
-  var price = parseInt($('#price').val());
-  var units = parseInt($('#units').val());
-  var income = parseInt($('#income').val());
-  var taxes = parseInt($('#taxes').val());
-  add(city, address, price, units, income, taxes);
-$('#city').val("");
-  $('#address').val("");
-  $('#price').val("");
-  $('#units').val("");
-  $('#income').val("");
-  $('#taxes').val("");
+  getHouses();
 });
 
 
-  
+
+function getHouses() {
+  $.get('/houses').done(function(houses){
+    houses.forEach(function(house){
+      var city = house.city;
+      var address = house.address;
+      var price = parseInt(house.price);
+      var units = parseInt(house.units);
+      var income = parseInt(house.income);
+      var taxes = parseInt(house.taxes);
+      add(city, address, price, units, income, taxes);
+    });
+  });
+}
+
+
+
+/////////////////////////////////////////////////////////////
+//ELIE'S KEYWORD SEARCH AJAX STUFF WORK ON LATER
+////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+
+// function getHouses() {
+//   return $.get('/houses').done(function(){
+//   });
+// }
+
+// $.when(getHouses()).done(function(houses){
+//   houses.forEach(function(house){
+//       var city = house.city;
+//       var address = house.address;
+//       var price = parseInt(house.price);
+//       var units = parseInt(house.units);
+//       var income = parseInt(house.income);
+//       var taxes = parseInt(house.taxes);
+//       add(city, address, price, units, income, taxes);
+//     });
+// });
+
 });//DOCUMENT CLOSED
 
 
