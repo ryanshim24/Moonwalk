@@ -185,8 +185,6 @@ houses = doc.css('.txt')
     end
     # puts "#{title}- #{url_link}- #{price}:#{location} #{beds}"
 
-    puts url_link
-
     House.create(
       city: town,
       address: url,
