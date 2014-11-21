@@ -189,7 +189,7 @@ houses = doc.css('.txt')
 
     puts url_link
 
-    House.find_or_create(
+    House.create(
       city: town,
       address: title,
       price: price,

@@ -169,7 +169,7 @@ function add(city, address, price, units, income, taxes){
       $(".tableData").append
       ("<tr>"  
       + "<td id='tablerate'>" + whatever.rate + "</td>" 
-      + "<td id='tableaddress'>"+ whatever.address + "</td>" 
+      + "<td id='tableaddress'><a href='"+whatever.address+"'>Link</a></td>" 
       + "<td id='tabledownpayment'>"+ whatever.downpayment + "</td>" 
       + "<td id='tablemortgage'>"+ whatever.mortgage + "</td>" 
       + "<td id='tableincome'>"+ whatever.cashflow 
@@ -184,15 +184,14 @@ function add(city, address, price, units, income, taxes){
 $('.addtolist').on("submit", function(e){
   e.preventDefault();
   var city = $('#city').val();
-  var newCity= toTitleCase(city);
-  console.log(newCity);
+  var newCity = city.toLowerCase();
   getHouses(newCity);
   $('#city').val("");
 });
 
-function toTitleCase(str) {
-  return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-}
+// function toTitleCase(str) {
+//   return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+// }
 
 
 
