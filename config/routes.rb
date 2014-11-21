@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   
   resources :favorite
 
+  resources :houses
   
 end
   
