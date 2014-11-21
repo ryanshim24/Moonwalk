@@ -160,7 +160,9 @@ houses = doc.css('.txt')
   if !house.at_css('.price').nil? and !house.at_css('small').nil? and !house.at_css('.housing').nil?  
     title = house.at_css('.pl .hdrlnk').text
     url = house.at_css('.pl .hdrlnk')[:href]
-    price = house.at_css('.price').text
+    cost = house.at_css('.price').text
+    cost.slice!(0)
+    price = cost.to_i
     # location = house.at_css('small').text
     beds = house.at_css('.housing').text.slice!(2..4)
     if !beds.include?('br')
