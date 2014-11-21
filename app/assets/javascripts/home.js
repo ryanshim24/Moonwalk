@@ -55,12 +55,15 @@ $(document).ready(function(){
 
 $(".tableData").on("click",'.btn', function(e){
   e.preventDefault();
-  var roi = (this.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText);
-  addFav(roi);
+  var address = (this.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText);
+  var price = (this.parentNode.nextElementSibling.innerText);
+  console.log(address)
+  console.log(price)
+  addFav(price, address);
 });
 
-function addFav(roi){
-    $.post('/favorite', {roi: roi}).done(function(fav) {
+function addFav(price, address){
+    $.post('/favorite', {price: price, address: address}).done(function(fav) {
       console.log("Succes:" + fav);
       loadFav();
     }); 
@@ -70,7 +73,7 @@ function loadFav() {
   $("#myFavs").empty();
   $.get('/favorite/1').done(function(favs){
     favs.forEach(function(fav){
-      var list = "<li>"+fav.roi+"<a class='deleteBtn' data-id='"+fav.id+"'>X</a></li>";
+      var list = "<li>"+fav.address+"--"+fav.price+"<a class='deleteBtn' data-id='"+fav.id+"'>X</a></li>";
       $("#myFavs").append(list);
     });
   });
@@ -165,9 +168,7 @@ function add(city, address, price, units, income, taxes, title){
   function list(homes) {
   $('.tableData').empty();
   var whatever = homes;
-  console.log(whatever);
     whatever.forEach(function(whatever) {
-      console.log(whatever)
       $(".tableData").append
       ("<tr>"  
       + "<td id='tablerate'>" + whatever.rate + "</td>" 
@@ -175,7 +176,8 @@ function add(city, address, price, units, income, taxes, title){
       + "<td id='tabledownpayment'>"+ whatever.downpayment + "</td>" 
       + "<td id='tablemortgage'>"+ whatever.mortgage + "</td>" 
       + "<td id='tableincome'>"+ whatever.cashflow 
-      + "</td>"+"<td id='tablebutton'><button id='addFav' class='btn'>Favorite</button>"
+      + "</td>"+"<td id='tablebutton'><button id='addFav' class='btn'>Favorite</button>" 
+      + "<td id='tableprice'  style='display: none; other-property: value;''>" + whatever.price + "</td>" 
       + "</tr>");
     });
   }
@@ -183,9 +185,10 @@ function add(city, address, price, units, income, taxes, title){
 
 $('.addtolist').on("submit", function(e){
   e.preventDefault();
+  homes = [];
   var city = $('#city').val();
-  var newCity = city.toLowerCase();
-  getHouses(newCity);
+  // var newCity = city.toLowerCase();
+  getHouses(city);
 });
 
 // function toTitleCase(str) {

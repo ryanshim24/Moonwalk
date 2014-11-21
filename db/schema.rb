@@ -17,7 +17,8 @@ ActiveRecord::Schema.define(version: 20141120194040) do
   enable_extension "plpgsql"
 
   create_table "favorites", force: true do |t|
-    t.string   "roi"
+    t.string   "price"
+    t.string   "address"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

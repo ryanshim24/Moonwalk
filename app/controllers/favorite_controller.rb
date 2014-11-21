@@ -6,8 +6,9 @@ class FavoriteController < ApplicationController
   end
  
   def create
-    roi = params[:roi]
-    y = Favorite.create({roi: roi})
+    price = params[:price]
+    address = params[:address]
+    y = Favorite.create({price: price, address: address})
     u = User.find session[:user_id]
     u.favorites << y
     render json: y

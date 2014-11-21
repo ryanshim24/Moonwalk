@@ -1,6 +1,6 @@
 class AccessController < ApplicationController
 before_action :confirm_logged_in, except: [:new, :create, :attempt_login, :password_reset, :reset, :reset_password, :logout, :home]
-before_action :prevent_login_signup, only: [:login, :new]
+before_action :prevent_login_signup, only: [:home]
 
   
 

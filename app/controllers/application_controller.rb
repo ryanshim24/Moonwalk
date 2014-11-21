@@ -13,12 +13,12 @@ private
     end
   end
 
-  # Stop a logged in user from going to the sign up page
-  # def prevent_login_signup
-  #   if session[:user_id]
-  #     redirect_to('/home')
-  #   end
-  # end
+  # Stop a logged in user from going to the home page
+  def prevent_login_signup
+    if session[:user_id]
+      redirect_to('/index')
+    end
+  end
 
   # Prevent a user from going to another users page
   # def prevent_user(user)

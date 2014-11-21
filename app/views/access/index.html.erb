@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-md-8 col-lg-8 col-sm-8">
         <h2>Multi-Unit ROI Calculator<span>
-            <img style="height:150px; width: 300px; margin-left: 30px;"src="http://static.skillshare.com/uploads/project/b22a02c8439d20d24106f5d970c4d83c/5033ede7" alt="">
+            <img style="height:150px; width: 250px; margin-left: 30px;"src="https://s3.amazonaws.com/uploads.hipchat.com/39979/1252803/PUPLibnyzYmw3pM/Moonwalk7.gif" alt="">
           </span></h2>
         <form class ="addtolist" action="javascript:void(0);">
           <br>
@@ -27,7 +27,7 @@
         <table class="table">
         <thead>
           <th>ROI</th>
-          <th>Address</th>
+          <th>Description</th>
           <th>Downpayment</th>
           <th>Mortgage</th>
           <th>Monthly Income</th>
@@ -44,7 +44,7 @@
         <h4><%= @current_user.username %></h4>
         <ul id="myFavs">
         <% @current_user.favorites.each do |fav| %>
-          <li><%= fav.roi %><a class = 'deleteBtn' data-id="<%= fav.id%>">X</a></li>
+          <li><%= fav.address %> --<%= fav.price %><a class = 'deleteBtn' data-id="<%= fav.id%>">X</a></li>
         <% end %>
         </ul>
       </div>
