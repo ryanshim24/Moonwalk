@@ -4,33 +4,10 @@ require 'pry'
 require 'rake'
 #require_relative '../../app/models/house'
 
-town = User[selection]
-
-if town == "Oakland" 
-  area = "sfbay"
-  region = "eby/"
-  c_search = "oakland"
-elsif town == "Los Angeles"
-  area = "losangeles"
-  region = "lac/"
-  c_search = "los%20angeles"
-elsif town == "Seattle"
-  area = "seattle"
-  region = "see/"
-  c_search = "seattle"
-elsif town == "Las Vegas"
-  area = "lasvegas"
-  region = ""
-  c_search = "las%20vegas"
-elsif town == "San Francisco"
-  area = "sfbay"
-  region = "sfc/"
-  c_search = "san%20francisco"
-elsif town == "Portland"
-  area = "portland"
-  region = "mlt/"
-  c_search = "portland"
-end
+town = "Oakland"
+area = "sfbay"
+region = "eby/"
+c_search = "oakland"
 
 url = 'http://'+area+'.craigslist.org/search/'+region+'apa?query='+c_search+''
 url2 = 'http://'+area+'.craigslist.org/search/'+region+'apa?s=100&query='+c_search+''
@@ -185,32 +162,6 @@ end
   puts fourBR
   puts fiveBR
 
-if town == "Oakland" 
-  area = "sfbay"
-  region = "eby/"
-  c_search = "oakland"
-elsif town == "Los Angeles"
-  area = "losangeles"
-  region = "lac/"
-  c_search = "los%20angeles"
-elsif town == "Seattle"
-  area = "seattle"
-  region = "see/"
-  c_search = "seattle"
-elsif town == "Las Vegas"
-  area = "lasvegas"
-  region = ""
-  c_search = "las%20vegas"
-elsif town == "San Francisco"
-  area = "sfbay"
-  region = "sfc/"
-  c_search = "san%20francisco"
-elsif town == "Portland"
-  area = "portland"
-  region = "mlt/"
-  c_search = "portland"
-end
-
 url = "http://"+area+".craigslist.org/search/"+region+"rea?query="+c_search+"&hasPic=1&housing_type=6"
 doc = Nokogiri::HTML(open(url))
 houses = doc.css('.txt')
@@ -253,7 +204,8 @@ houses = doc.css('.txt')
       bedrooms: beds,
       income: income,
       taxes: 2000,
-      units: 1
+      units: 1,
+      title: title
     )
   
   end

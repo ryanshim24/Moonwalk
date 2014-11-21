@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20141120194040) do
     t.integer  "income"
     t.integer  "taxes"
     t.integer  "units"
+    t.string   "title"
+    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
