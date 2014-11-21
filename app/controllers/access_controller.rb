@@ -52,7 +52,7 @@ before_action :prevent_login_signup, only: [:login, :new]
     if User.where(username: params[:username]).present?
       @user = User.where(username: params[:username]).first
       @user.update_attributes(:reset_token => Random.rand(100))
-      UserMailer.password_reset(@user).deliver
+      UserMailer.password_reset(@user, root_url).deliver
       redirect_to root_path
     else
       redirect_to root_path

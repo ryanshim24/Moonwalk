@@ -181,7 +181,7 @@ function add(city, address, price, units, income, taxes){
 
 
 
-$('.addtolist').on("click", function(e){
+$('.addtolist').on("submit", function(e){
   e.preventDefault();
   var city = $('#city').val();
   var newCity= toTitleCase(city);
