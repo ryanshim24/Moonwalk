@@ -160,9 +160,7 @@ houses = doc.css('.txt')
   if !house.at_css('.price').nil? and !house.at_css('small').nil? and !house.at_css('.housing').nil?  
     title = house.at_css('.pl .hdrlnk').text
     url = house.at_css('.pl .hdrlnk')[:href]
-    url_link = "<a href=http://www.sfbay.craigslist.org" + url + ">" + title + " </a>"
-    cost = house.at_css('.price').text
-    price = cost.to_i
+    price = house.at_css('.price').text
     # location = house.at_css('small').text
     beds = house.at_css('.housing').text.slice!(2..4)
     if !beds.include?('br')
@@ -189,9 +187,9 @@ houses = doc.css('.txt')
 
     puts url_link
 
-    House.find_or_create(
+    House.create(
       city: town,
-      address: title,
+      address: url,
       price: price,
       bedrooms: beds,
       income: income,
