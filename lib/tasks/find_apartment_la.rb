@@ -169,7 +169,7 @@ houses = doc.css('.tdxt')
   houses.each do |house|
   if !house.at_css('.price').nil? and !house.at_css('small').nil? and !house.at_css('.housing').nil?  
     title = house.at_css('.pl .hdrlnk').text
-    url = "http://losangeles.craigslist.org"+house.at_css('.pl .hdrlnk')[:href]
+    url = "http://losangeles.craigslist.org"+house.at_css('.pl .hdrlnk')[:href]+""
     cost = house.at_css('.price').text
     cost.slice!(0)
     price = cost.to_i
