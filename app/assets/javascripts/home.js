@@ -183,21 +183,31 @@ function add(city, address, price, units, income, taxes){
 
 $('.addtolist').on("click", function(e){
   e.preventDefault();
-  getHouses();
+  var city = $('#city').val();
+  var newCity= toTitleCase(city);
+  console.log(newCity);
+  getHouses(newCity);
+  $('#city').val("");
 });
 
+function toTitleCase(str) {
+  return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
 
 
-function getHouses() {
+
+function getHouses(place) {
   $.get('/houses').done(function(houses){
     houses.forEach(function(house){
-      var city = house.city;
-      var address = house.address;
-      var price = parseInt(house.price);
-      var units = parseInt(house.units);
-      var income = parseInt(house.income);
-      var taxes = parseInt(house.taxes);
-      add(city, address, price, units, income, taxes);
+      if (place === house.city){
+        var city = house.city;
+        var address = house.address;
+        var price = parseInt(house.price);
+        var units = parseInt(house.units);
+        var income = parseInt(house.income);
+        var taxes = parseInt(house.taxes);
+        add(city, address, price, units, income, taxes);
+      }
     });
   });
 }
