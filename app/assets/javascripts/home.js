@@ -107,7 +107,7 @@ var homes = [];
 
 /// THIS IS THE MAIN THING YOOYOYOYOYO
 // Adds our input stuff into this Calculator
-function add(city, address, price, units, income, taxes){
+function add(city, address, price, units, income, taxes, title){
   var downpayment = (price * .33).toFixed(2);
   var bills = (units * 5 + income * .1).toFixed(2);
   var repairs = units * 100;
@@ -156,7 +156,8 @@ function add(city, address, price, units, income, taxes){
     repairs: '$' + repairs,
     vacancy: '$' + vacancy(city),
     cashflow: '$' + cashFlow,
-    rate: rateReturn +'%'
+    rate: rateReturn +'%',
+    title: title
   };
   
   list(homes);
@@ -170,7 +171,7 @@ function add(city, address, price, units, income, taxes){
       $(".tableData").append
       ("<tr>"  
       + "<td id='tablerate'>" + whatever.rate + "</td>" 
-      + "<td id='tableaddress'><a target='_blank' href=http://sfbay.craigslist.org"+whatever.address+">Link</a></td>" 
+      + "<td id='tableaddress'><a target='_blank' href=http://sfbay.craigslist.org"+whatever.address+">"+whatever.title+"</a></td>" 
       + "<td id='tabledownpayment'>"+ whatever.downpayment + "</td>" 
       + "<td id='tablemortgage'>"+ whatever.mortgage + "</td>" 
       + "<td id='tableincome'>"+ whatever.cashflow 
@@ -203,7 +204,8 @@ function getHouses(place) {
         var units = parseInt(house.units);
         var income = parseInt(house.income);
         var taxes = parseInt(house.taxes);
-        add(city, address, price, units, income, taxes);
+        var title = house.title;
+        add(city, address, price, units, income, taxes, title);
       }
     });
   });
