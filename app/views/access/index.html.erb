@@ -5,24 +5,12 @@
     <div class="row">
       <div class="col-md-8">
         <h2>Multi-Unit ROI Calculator</h2>
-        <div class="btn-group">
-          <button id="loadList" class="btn">load list</button>
-          <button id="removeLast" class="btn">remove last</button>
-          <button id="clearList" class="btn">clear list</button>
-          <button id="clearPage" class="btn">clear page</button>
-        </div>
         <br>
-        <br>
-        <input id="city" class="draft" type="text" placeholder="city"/> 
-        <input id="address" class="draft" type="text" placeholder="address"/> 
-        <input id="price"  type="number" placeholder="price"/> 
-        <input id="units"  type="number" placeholder="units"/> 
-        <input id="income"  type="number" placeholder="income"/> 
-        <input id="taxes"  type="number" placeholder="taxes"/> 
+        <input id="city" class="draft" type="text" placeholder="City"/> 
         <br>
         <br>
 
-        <button class="addtolist" >add to list</button>
+        <button class="addtolist" >Find Now</button>
         <br>
         
         <table class="table">
@@ -45,7 +33,7 @@
         <h4><%= @current_user.username %></h4>
         <ul id="myFavs">
         <% @current_user.favorites.each do |fav| %>
-          <li><%= fav.roi %><button class = 'deleteBtn' data-id="<%= fav.id%>">Delete</button></li>
+          <li><%= fav.roi %><a class = 'deleteBtn' data-id="<%= fav.id%>">X</a></li>
         <% end %>
         </ul>
       </div>

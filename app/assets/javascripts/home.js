@@ -70,7 +70,7 @@ function loadFav() {
   $("#myFavs").empty();
   $.get('/favorite/1').done(function(favs){
     favs.forEach(function(fav){
-      var list = "<li>"+fav.roi+"<button class='deleteBtn' data-id='"+fav.id+"'>Delete</button></li>";
+      var list = "<li>"+fav.roi+"<a class='deleteBtn' data-id='"+fav.id+"'>X</a></li>";
       $("#myFavs").append(list);
     });
   });
