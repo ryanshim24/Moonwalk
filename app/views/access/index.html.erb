@@ -3,9 +3,10 @@
 <div class="main" style="height: 500px; overflow-y: scroll;">
   <div class="container">
     <div class="row">
-      <div class="col-md-8">
-        <h2>Multi-Unit ROI Calculator</h2>
-        <br>
+      <div class="col-md-8 col-lg-8 col-sm-8">
+        <h2>Multi-Unit ROI Calculator<span>
+            <img style="height:150px; width: 300px; margin-left: 30px;"src="http://static.skillshare.com/uploads/project/b22a02c8439d20d24106f5d970c4d83c/5033ede7" alt="">
+          </span></h2>
         <form class ="addtolist" action="javascript:void(0);">
           <br>
           <!-- <input id="city" class="draft" type="text" placeholder="City" autofocus> -->
@@ -37,7 +38,7 @@
         </table>
 
       </div>
-      <div id="favorite" class="col-md-4">
+      <div id="favorite" class="col-md-4 col-lg-4 col-sm-4">
         <h2>Your Interests</h2>
         <h4><%= @current_user.username %></h4>
         <ul id="myFavs">
