@@ -166,10 +166,11 @@ function add(city, address, price, units, income, taxes){
   var whatever = homes;
   console.log(whatever);
     whatever.forEach(function(whatever) {
+      console.log(whatever)
       $(".tableData").append
       ("<tr>"  
       + "<td id='tablerate'>" + whatever.rate + "</td>" 
-      + "<td id='tableaddress'><a href='"+whatever.address+"'>Link</a></td>" 
+      + "<td id='tableaddress'><a target='_blank' href=http://www.sfbay.craigslist.org"+whatever.address+">Link</a></td>" 
       + "<td id='tabledownpayment'>"+ whatever.downpayment + "</td>" 
       + "<td id='tablemortgage'>"+ whatever.mortgage + "</td>" 
       + "<td id='tableincome'>"+ whatever.cashflow 
@@ -178,8 +179,6 @@ function add(city, address, price, units, income, taxes){
     });
   }
 }// end of the add function
-
-
 
 $('.addtolist').on("submit", function(e){
   e.preventDefault();
