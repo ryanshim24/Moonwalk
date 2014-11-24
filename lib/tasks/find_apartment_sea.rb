@@ -162,6 +162,16 @@ end
   puts fourBR
   puts fiveBR
 
+  AverageRent.create(
+  city: town,
+  studio: studio,
+  br1: oneBR,
+  br2: twoBR,
+  br3: threeBR,
+  br4: fourBR,
+  br5: fiveBR
+  )
+
 houses_url = "http://"+area+".craigslist.org/search/"+region+"rea?query="+c_search+"&hasPic=1&housing_type=6"
 doc = Nokogiri::HTML(open(houses_url))
 houses = doc.css('.txt')

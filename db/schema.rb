@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120194040) do
+ActiveRecord::Schema.define(version: 20141124192420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "average_rents", force: true do |t|
+    t.string   "city"
+    t.integer  "studio"
+    t.integer  "br1"
+    t.integer  "br2"
+    t.integer  "br3"
+    t.integer  "br4"
+    t.integer  "br5"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "favorites", force: true do |t|
     t.string   "price"
