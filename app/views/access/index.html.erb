@@ -43,7 +43,7 @@
         <h4><%= @current_user.username %></h4>
         <ul id="myFavs">
         <% @current_user.favorites.each do |fav| %>
-          <li><%= fav.address %> --<%= fav.price %><a class = 'deleteBtn' data-id="<%= fav.id%>">X</a></li>
+          <li><a target='_blank' href="<%= fav.link %>"><%= fav.address %></a> --<%= fav.price %><a class = 'deleteBtn' data-id="<%= fav.id%>">X</a></li>
         <% end %>
         </ul>
       </div>

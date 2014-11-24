@@ -8,7 +8,8 @@ class FavoriteController < ApplicationController
   def create
     price = params[:price]
     address = params[:address]
-    y = Favorite.create({price: price, address: address})
+    link = params[:link]
+    y = Favorite.create({price: price, address: address, link: link})
     u = User.find session[:user_id]
     u.favorites << y
     render json: y

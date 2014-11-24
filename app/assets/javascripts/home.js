@@ -57,13 +57,15 @@ $(".tableData").on("click",'.btn', function(e){
   e.preventDefault();
   var address = (this.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText);
   var price = (this.parentNode.nextElementSibling.innerText);
+  var link = (this.parentNode.nextElementSibling.nextElementSibling.innerText);
   console.log(address)
   console.log(price)
-  addFav(price, address);
+  console.log(link)
+  addFav(price, address, link);
 });
 
-function addFav(price, address){
-    $.post('/favorite', {price: price, address: address}).done(function(fav) {
+function addFav(price, address, link){
+    $.post('/favorite', {price: price, address: address, link: link}).done(function(fav) {
       console.log("Succes:" + fav);
       loadFav();
     }); 
@@ -73,7 +75,7 @@ function loadFav() {
   $("#myFavs").empty();
   $.get('/favorite/1').done(function(favs){
     favs.forEach(function(fav){
-      var list = "<li>"+fav.address+"--"+fav.price+"<a class='deleteBtn' data-id='"+fav.id+"'>X</a></li>";
+      var list = "<li><a target='_blank' href='"+fav.link+"'>"+fav.address+"</a>--"+fav.price+"<a class='deleteBtn' data-id='"+fav.id+"'>X</a></li>";
       $("#myFavs").append(list);
     });
   });
@@ -177,7 +179,8 @@ function add(city, address, price, units, income, taxes, title){
       + "<td id='tablemortgage'>"+ whatever.mortgage + "</td>" 
       + "<td id='tableincome'>"+ whatever.cashflow 
       + "</td>"+"<td id='tablebutton'><button id='addFav' class='btn'>Favorite</button>" 
-      + "<td id='tableprice'  style='display: none; other-property: value;''>" + whatever.price + "</td>" 
+      + "<td id='tableprice'  style='display: none; other-property: value;''>" + whatever.price + "</td>"
+      +"<td id='tablelink'  style='display: none; other-property: value;''>" + whatever.address + "</td>" 
       + "</tr>");
     });
   }
