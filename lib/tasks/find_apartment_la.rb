@@ -16,9 +16,6 @@ url4 = 'http://'+area+'.craigslist.org/search/'+region+'apa?s=300&query='+c_sear
 url5 = 'http://'+area+'.craigslist.org/search/'+region+'apa?s=400&query='+c_search+''
 url6 = 'http://'+area+'.craigslist.org/search/'+region+'apa?s=500&query='+c_search+''
 
-puts url
-puts url2 
-puts url3
 
 # using Nokogiri to scrape
 doc = Nokogiri::HTML(open(url))
