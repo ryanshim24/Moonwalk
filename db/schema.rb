@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20141124192420) do
     t.integer  "reset_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "auth_token"
   end
 
 end
