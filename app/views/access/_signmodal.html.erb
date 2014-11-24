@@ -10,7 +10,7 @@
         <%= form_for(@user, url: create_user_path) do |f|%>
         <br>
         <div class="form-group">
-          <%= f.label(:username, "Email Address", class: "control-label") %>
+          <%= f.label(:username, "Email Address", class: "control-label", :autocomplete => :off) %>
           <%= f.text_field :username, autofocus: true, class: "form-control" %>
         </div>
         
