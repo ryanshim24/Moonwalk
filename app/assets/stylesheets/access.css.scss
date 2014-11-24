@@ -278,3 +278,16 @@ tbody tr:hover {
    background-color: #F8F6F6;
 }
 
+#favorite {
+  position: absolute;
+  right: 5px; 
+
+}
+
+
+@media (max-width: 1080px) {
+  #favorite {
+    position: relative;
+    right: 0px;
+  }
+}
