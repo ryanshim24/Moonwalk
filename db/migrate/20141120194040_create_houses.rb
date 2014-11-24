@@ -12,5 +12,5 @@ class CreateHouses < ActiveRecord::Migration
       t.string :image
       t.timestamps
     end
-  end
+  end 
 end
