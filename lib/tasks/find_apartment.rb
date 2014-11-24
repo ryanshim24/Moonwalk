@@ -32,12 +32,16 @@ elsif town == "Portland"
   c_search = "portland"
 end
 
-url = 'http://'+area+'.craigslist.org/search/'+region+'apa?query='+c_search+''
-url2 = 'http://'+area+'.craigslist.org/search/'+region+'apa?s=100&query='+c_search+''
-url3 = 'http://'+area+'.craigslist.org/search/'+region+'apa?s=200&query='+c_search+''
-url4 = 'http://'+area+'.craigslist.org/search/'+region+'apa?s=300&query='+c_search+''
-url5 = 'http://'+area+'.craigslist.org/search/'+region+'apa?s=400&query='+c_search+''
-url6 = 'http://'+area+'.craigslist.org/search/'+region+'apa?s=500&query='+c_search+''
+url = 'https://'+area+'.craigslist.org/search/'+region+'apa?query='+c_search+''
+url2 = 'https://'+area+'.craigslist.org/search/'+region+'apa?s=100&query='+c_search+''
+url3 = 'https://'+area+'.craigslist.org/search/'+region+'apa?s=200&query='+c_search+''
+url4 = 'https://'+area+'.craigslist.org/search/'+region+'apa?s=300&query='+c_search+''
+url5 = 'https://'+area+'.craigslist.org/search/'+region+'apa?s=400&query='+c_search+''
+url6 = 'https://'+area+'.craigslist.org/search/'+region+'apa?s=500&query='+c_search+''
+
+
+puts url
+puts url2
 
 # using Nokogiri to scrape
 doc = Nokogiri::HTML(open(url))
@@ -212,8 +216,10 @@ elsif town == "Portland"
 end
 
 url = "http://"+area+".craigslist.org/search/"+region+"rea?query="+c_search+"&hasPic=1&housing_type=6"
+puts url
 doc = Nokogiri::HTML(open(url))
 houses = doc.css('.txt')
+
 
   houses.each do |house|
   if !house.at_css('.price').nil? and !house.at_css('small').nil? and !house.at_css('.housing').nil?  

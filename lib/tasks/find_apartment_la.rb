@@ -16,6 +16,10 @@ url4 = 'http://'+area+'.craigslist.org/search/'+region+'apa?s=300&query='+c_sear
 url5 = 'http://'+area+'.craigslist.org/search/'+region+'apa?s=400&query='+c_search+''
 url6 = 'http://'+area+'.craigslist.org/search/'+region+'apa?s=500&query='+c_search+''
 
+puts url
+puts url2 
+puts url3
+
 # using Nokogiri to scrape
 doc = Nokogiri::HTML(open(url))
 doc = Nokogiri::HTML(open(url2))
@@ -163,6 +167,7 @@ end
   puts fiveBR
 
 houses_url = "http://"+area+".craigslist.org/search/"+region+"rea?query="+c_search+"&hasPic=1&housing_type=6"
+puts houses_url
 doc = Nokogiri::HTML(open(houses_url))
 houses = doc.css('.tdxt')
 
