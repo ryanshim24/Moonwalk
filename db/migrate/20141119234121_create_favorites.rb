@@ -3,6 +3,7 @@ class CreateFavorites < ActiveRecord::Migration
     create_table :favorites do |t|
       t.string :price
       t.string :address
+      t.string :link
       t.integer :user_id
 
       t.timestamps
