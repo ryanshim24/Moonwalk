@@ -17,7 +17,7 @@ before_action :prevent_login_signup, only: [:home]
       flash[:success] = "You are now logged in!"
       redirect_to index_path
     else
-      flash[:alert] = "Something went wrong Try again"
+      flash[:alert] = "Something went wrong. Try again"
       redirect_to root_path
     end
 
@@ -33,11 +33,11 @@ before_action :prevent_login_signup, only: [:home]
     end
 
     if !found_user
-      flash.now[:alert] = "Invalid username"
+      flash.now[:alert] = "Invalid Username"
       @user = User.new
       render :home
     elsif !authorized_user
-      flash.now[:alert] = "Invalid password"
+      flash.now[:alert] = "Invalid Password"
       @user = User.new
       render :home
     else
@@ -87,7 +87,7 @@ before_action :prevent_login_signup, only: [:home]
   def logout
     # mark user as logged out
     session[:user_id] = nil
-    flash[:notice] = "Logged out"
+    flash[:notice] = "You are now logged out"
     redirect_to root_path
   end
 
