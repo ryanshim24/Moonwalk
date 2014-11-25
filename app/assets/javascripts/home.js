@@ -75,7 +75,7 @@ function loadFav() {
   $("#myFavs").empty();
   $.get('/favorite/1').done(function(favs){
     favs.forEach(function(fav){
-      var list = "<li><a target='_blank' href='"+fav.link+"'>"+fav.address+"</a>--"+fav.price+"<a class='deleteBtn' data-id='"+fav.id+"'>X</a></li>";
+      var list = "<li><a target='_blank' href='"+fav.link+"'>"+fav.address+"</a>-- Price: "+fav.price+"<a class='deleteBtn' data-id='"+fav.id+"'>X</a></li>";
       $("#myFavs").append(list);
     });
   });
@@ -113,7 +113,7 @@ var homes = [];
 /// THIS IS THE MAIN THING YOOYOYOYOYO
 // Adds our input stuff into this Calculator
 function add(city, address, price, units, income, taxes, title){
-  var downpayment = (price * .33).toFixed(2);
+  var downpayment = (price * .33);
   var bills = (units * 5 + income * .1).toFixed(2);
   var repairs = units * 100;
 
@@ -144,19 +144,19 @@ function add(city, address, price, units, income, taxes, title){
     return (prin);
   };
 
-  var cashFlow = ((-1 * taxes)/12 - mortgage(price, downpayment) - bills - repairs - vacancy(city) + income).toFixed(2);
+  var cashFlow = ((-1 * taxes)/12 - mortgage(price, downpayment) - bills - repairs - vacancy(city) + income).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
   var rateReturn = ((cashFlow * 12) / price * 100).toFixed(2);
 
   homes[homes.length] = {
     id: homes.length,
     city: city,
     address: address,
-    price: '$' + price,
+    price: '$' + price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'),
     units: units,
     income: '$' + income,
     taxes: '$' + taxes,
-    downpayment: '$' + downpayment,
-    mortgage: '$' + mortgage(price, downpayment),
+    downpayment: '$' + downpayment.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'),
+    mortgage: '$' + mortgage(price, downpayment).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'),
     bills: '$' + bills,
     repairs: '$' + repairs,
     vacancy: '$' + vacancy(city),
