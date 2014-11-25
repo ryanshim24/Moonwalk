@@ -14,10 +14,10 @@ before_action :prevent_login_signup, only: [:home]
     if(@user.save)
       UserMailer.signup_confirmation(@user).deliver
       session[:user_id] = @user.id
-      # flash[:success] = "You are now logged in!"
+      flash[:success] = "You are now logged in!"
       redirect_to index_path
     else
-      # flash[:alert] = "Something went wrong Try again"
+      flash[:alert] = "Something went wrong Try again"
       redirect_to root_path
     end
 
@@ -33,16 +33,16 @@ before_action :prevent_login_signup, only: [:home]
     end
 
     if !found_user
-      # flash.now[:alert] = "Invalid username"
+      flash.now[:alert] = "Invalid username"
       @user = User.new
       render :home
     elsif !authorized_user
-      # flash.now[:alert] = "Invalid password"
+      flash.now[:alert] = "Invalid password"
       @user = User.new
       render :home
     else
       session[:user_id] = authorized_user.id
-      # flash[:success] = "You are now logged in."
+      flash[:success] = "You are now logged in."
       redirect_to index_path
     end
   end
@@ -76,7 +76,7 @@ before_action :prevent_login_signup, only: [:home]
     @user.update_attributes(:reset_token => nil)
     if(@user.save)
       session[:user_id] = @user.id
-      # flash[:success] = "You're profile is updated"
+      flash[:success] = "You're profile is updated"
       redirect_to root_path
     else
       render :reset
@@ -87,7 +87,7 @@ before_action :prevent_login_signup, only: [:home]
   def logout
     # mark user as logged out
     session[:user_id] = nil
-    # flash[:notice] = "Logged out"
+    flash[:notice] = "Logged out"
     redirect_to root_path
   end
 

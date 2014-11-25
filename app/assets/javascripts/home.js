@@ -42,6 +42,12 @@ $(document).ready(function(){
     }//end of start changed
 
 
+  // ThOSE FLASH MESSAGES
+  $(".flash").ready(function(){
+    $(".flash").delay(1500).slideUp(1500);
+  });
+
+
 
 /////////////////////////////////////////////////////////////
 //ADDING TO FAVORITES/DELETING GOOD STUFF

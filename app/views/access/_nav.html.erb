@@ -37,31 +37,3 @@
       </div>
     </div>
   <% end %>
-
-  
-  <% if flash[:notice].present? %>
-    <div class="flash-message notice animated fadeInDownBig" data-alert="alert">
-      <p class="max-width has-padding">
-        <%= flash[:notice] %>
-        <span class="icon-x flash-close">&nbsp;</span>
-      </p>
-    </div>  
-<% end %>
-
-<% if flash[:alert].present? %>
-  <div class="flash-message notice animated fadeInDownBig" data-alert="alert">
-    <p class="max-width has-padding">
-      <%= flash[:alert] %>
-      <span class="icon-x flash-close">&nbsp;</span>
-    </p>
-  </div>
-<% end %>
-
-<% if flash[:success].present? %>
-  <div class="flash-message notice animated fadeInDownBig" data-alert="alert">
-      <p class="max-width has-padding">
-        <%= flash[:success] %>
-        <span class="icon-x flash-close">&nbsp;</span>
-      </p>
-  </div>
-<% end %>

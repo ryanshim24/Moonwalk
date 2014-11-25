@@ -31,6 +31,24 @@
 </head>
 <body>
 
+   <% if flash[:notice].present? %>
+    <div class="flash container text-center alert alert-warning">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <% if flash[:alert].present? %>
+    <div class="flash container text-center alert alert-danger">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
+    <% if flash[:success].present? %>
+    <div class="flash container text-center alert alert-success">
+      <%= flash[:success] %>
+    </div>
+  <% end %>
+
 <%= yield %>
 
 </body>
