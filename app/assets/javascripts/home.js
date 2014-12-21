@@ -11,20 +11,20 @@ $(document).ready(function(){
   $(".reset-link").on("click", function() {
     $('#logModal').modal('hide');
   });
-  
+
   //Autofocus for the Modals
   $('.modal').on('shown.bs.modal', function() {
     $(this).find('[autofocus]').focus();
   });
 
 
-  // THE CHANGING OF MY NAV-BAR COLOR 
+  // THE CHANGING OF MY NAV-BAR COLOR
   var scroll_start = 0;
     var startchange = $('#startchange');
     var offset = startchange.offset();
 
     if (startchange.length){
-      $(document).scroll(function() { 
+      $(document).scroll(function() {
         scroll_start = $(this).scrollTop();
         if(scroll_start > offset.top) {
           $(".navbar-default").css('background', 'rgba(255,255,255,0.85)');
@@ -64,9 +64,9 @@ $(".tableData").on("click",'.btn', function(e){
   var address = (this.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText);
   var price = (this.parentNode.nextElementSibling.innerText);
   var link = (this.parentNode.nextElementSibling.nextElementSibling.innerText);
-  console.log(address)
-  console.log(price)
-  console.log(link)
+  console.log(address);
+  console.log(price);
+  console.log(link);
   addFav(price, address, link);
 });
 
@@ -74,7 +74,7 @@ function addFav(price, address, link){
     $.post('/favorite', {price: price, address: address, link: link}).done(function(fav) {
       console.log("Succes:" + fav);
       loadFav();
-    }); 
+    });
   }
 
 function loadFav() {
@@ -109,7 +109,7 @@ function deleteFav(targetId) {
 
 
 /////////////////////////////////////////////////////////////
-//MY REFACTURED CODE OF SWTICH'S 
+//MY REFACTURED CODE OF SWTICH'S
 ////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////
@@ -126,15 +126,15 @@ function add(city, address, price, units, income, taxes, title){
   function vacancy(add) {
     if (city == 'Portland'){
       return (income *.035).toFixed(2);
-    } else if (city == 'Las Vegas'){              
+    } else if (city == 'Las Vegas'){
       return (income * .08).toFixed(2);
-    } else if (city == 'Oakland'){              
+    } else if (city == 'Oakland'){
       return (income * .11).toFixed(2);
-    } else { 
-      return 0;   
+    } else {
+      return 0;
     }
   };
-    
+
 
 //This is the mortgage calculator
 //got off internet!
@@ -170,7 +170,7 @@ function add(city, address, price, units, income, taxes, title){
     rate: rateReturn +'%',
     title: title
   };
-  
+
   list(homes);
 
   function list(homes) {
@@ -178,15 +178,15 @@ function add(city, address, price, units, income, taxes, title){
   var whatever = homes;
     whatever.forEach(function(whatever) {
       $(".tableData").append
-      ("<tr>"  
-      + "<td id='tablerate'>" + whatever.rate + "</td>" 
-      + "<td id='tableaddress'><a target='_blank' href="+whatever.address+">"+whatever.title+"</a></td>" 
-      + "<td id='tabledownpayment'>"+ whatever.downpayment + "</td>" 
-      + "<td id='tablemortgage'>"+ whatever.mortgage + "</td>" 
-      + "<td id='tableincome'>"+ whatever.cashflow 
-      + "</td>"+"<td id='tablebutton'><button id='addFav' class='btn'>Favorite</button>" 
+      ("<tr>"
+      + "<td id='tablerate'>" + whatever.rate + "</td>"
+      + "<td id='tableaddress'><a target='_blank' href="+whatever.address+">"+whatever.title+"</a></td>"
+      + "<td id='tabledownpayment'>"+ whatever.downpayment + "</td>"
+      + "<td id='tablemortgage'>"+ whatever.mortgage + "</td>"
+      + "<td id='tableincome'>"+ whatever.cashflow
+      + "</td>"+"<td id='tablebutton'><button id='addFav' class='btn'>Favorite</button>"
       + "<td id='tableprice'  style='display: none; other-property: value;''>" + whatever.price + "</td>"
-      +"<td id='tablelink'  style='display: none; other-property: value;''>" + whatever.address + "</td>" 
+      +"<td id='tablelink'  style='display: none; other-property: value;''>" + whatever.address + "</td>"
       + "</tr>");
     });
   }
